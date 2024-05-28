@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevXor Team</title>
+  <title>DevXor Team</title>
   <!--=============== FAVICON ===============-->
   <link rel="shortcut icon"
     href="https://cdn.discordapp.com/attachments/965806495109369926/1109147334199214171/png_2dev_copy.png?ex=66195973&is=6606e473&hm=5a3771659610c4ef21ab0bb79e798af7c726a118cb2e874c8c045abe6a85eebd&"
@@ -24,7 +24,388 @@
   <!-- <script src="https://kit.fontawesome.com/606afcc208.js" crossorigin="anonymous" style="display: none;"></script> -->
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --hue: 207;
+  --sat: 90%;
+  --lig: 61%;
+  --first-color: hsl(var(--hue), var(--sat), var(--lig));
+  --first-color-alt: hsl(var(--hue), var(--sat), 57%);
+  /* -4% */
+  --title-color: #add8e6;
+  --text-color: #fff;
+  --text-color-light: hsl(var(--hue), 8%, 75%);
+  --text-color-lighten: hsl(var(--hue), 8%, 92%);
+  --body-color: #0d1117;
+  --container-color: #fff;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  padding: 0;
+  /* margin: 0; */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  box-sizing: border-box;
+  display: inline;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 100%;
+  /* margin-left: 1.5rem;
+  margin-right: 1.5rem; */
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.profile {
+  position: relative;
+  /* padding-top: 3.5rem; */
+}
+
+.profile__container {
+  /* row-gap: 2rem; */
+}
+
+.profile__data {
+  display: grid;
+  text-align: center;
+}
+
+.profile__perfil {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    hsla(var(--hue), var(--sat), var(--lig), 1) 0%,
+    hsla(var(--hue), var(--sat), var(--lig), 2) 100%
+  );
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profile__perfil img {
+  width: 75px;
+}
+
+.profile__border {
+  /* border: 3.5px solid var(--first-color); */
+  justify-self: center;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  display: grid;
+  margin-bottom: 0.75rem;
+}
+
+.profile__name {
+  font-size: var(--h2-font-size);
+}
+
+.profile__profession {
+  font-size: var(--smaller-font-size);
+  font-weight: 500;
+  color: var(--text-color);
+  /* margin-bottom: 1rem; */
+}
+
+.profile__social {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.75rem;
+}
+
+.profile__social-link {
+  background-color: whitesmoke;
+  border-radius: 15%;
+  display: flex;
+
+  font-size: 1.25rem;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* .profile__social-link::hover {
+  background-color: var(--body-color);
+  transform: scale();
+} */
+
+.profile__info {
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  column-gap: 2.5rem;
+}
+
+.profile__info-group {
+  text-align: center;
+}
+
+.profile__info-number {
+  font-size: var(--normal-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.profile__info-description {
+  font-size: var(--smaller-font-size);
+  font-weight: 500;
+}
+
+
+.icon-button {
+  background-color: var(--body-color);
+  border-radius: 3.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 3.6rem;
+}
+
+/* Circle */
+.icon-button span {
+  border-radius: 15%;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
+}
+
+.icon-button:hover span {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 3.6rem;
+  margin: -1.8rem;
+}
+
+.discord span {
+  background-color: #5865f2;
+}
+
+.youtube span {
+  background-color: #fe0000;
+}
+
+.github span {
+  background-color: #333;
+}
+
+/* Icons */
+.icon-button i {
+  background: none;
+  color: white;
+  height: 3.6rem;
+  left: 0;
+  line-height: 3.6rem;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 3.6rem;
+  z-index: 10;
+}
+
+.icon-button .fa-twitter {
+  color: #4099ff;
+  color: white;
+}
+
+.icon-button .fa-facebook {
+  color: #3b5998;
+  color: white;
+}
+
+.icon-button .fa-linkedin {
+  color: #0077b5;
+  color: white;
+}
+
+.icon-button .fa-instagram {
+  color: #4099ff;
+  color: white;
+}
+
+.icon-button .fa-github {
+  color: #333;
+  color: white;
+}
+
+.icon-button:hover .fa-twitter,
+.icon-button:hover .fa-facebook,
+.icon-button:hover .fa-linkedin,
+.icon-button:hover .fa-instagram,
+.icon-button:hover .fa-github {
+  color: white;
+}
+
+.copyright {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.content {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+</style>
 </head>
 <body>
   <!-- <script src="https://widget.cxgenie.ai/widget.js" data-aid="6f2d6db5-2e0d-4f07-bba4-5636a3afa0ef"></script> -->
@@ -36,7 +417,7 @@
       <div class="profile__data">
         <div class="profile__border">
           <div class="profile_perfil">
-            <img src="https://cdn.discordapp.com/attachments/965806495109369926/1109147334199214171/png_2dev_copy.png?ex=66195973&is=6606e473&hm=5a3771659610c4ef21ab0bb79e798af7c726a118cb2e874c8c045abe6a85eebd&"
+            <img src="https://i.imgur.com/LBsX4p9.gif"
               alt="">
           </div>
         </div>
@@ -47,7 +428,7 @@
           Life Is Short, Start Learning, Start learning with us here we all help each other excellently.
         </h3><br>
         <ul class="profile__social">
-          <a href="https://discord.gg/developer-tools-931536214228611102" class="icon-button discord">
+          <a href="https://dsc.gg/devxor" class="icon-button discord">
             <i class="fab fa-discord"></i>
             <span></span>
           </a>
@@ -55,7 +436,7 @@
             <i class="fab fa-youtube"></i>
             <span></span>
           </a> -->
-          <a href="https://github.com/Developer-Tools-Discord" class="icon-button github">
+          <a href="https://github.com/DevXor-Team" class="icon-button github">
             <i class="fab fa-github"></i>
             <span></span>
           </a>
@@ -86,7 +467,7 @@
 
       </div>
       
-      <!-- <div class="profile__data">
+      <div class="profile__data">
         <h3 class="profile__name">Status v3.2.8</h3>
       </div>
 
@@ -112,7 +493,7 @@
             <br>
           </p>
         </div>
-      </div> -->
+      </div>
       
       <div class="header">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -135,7 +516,90 @@
       </p>
     </div>
   </header>
-  <!-- <script src="https://aa116529-60a0-4841-8cbb-7e58b1713cae-00-1i0791dt49h4s.picard.replit.dev/assets/js/main.js"></script> -->
+  <script >
+  const socket = io('https://nl-00.hosts.serverawy.tech:3003');
+socket.on("connect", () => {
+console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+socket.on('message', function(msg) {
+  const box1 = msg._use_bot;
+  const box2 = msg._run_bot;
+  const box3 = msg._forks_total;
+  console.log(msg);
+
+  var bx1Element = document.getElementById('bx1');
+  if (bx1Element) {
+    updateNumber(bx1Element, box1);
+  }
+
+  var bx2Element = document.getElementById('bx2');
+  if (bx2Element) {
+    updateNumber(bx2Element, box2);
+  }
+  var bx3Element = document.getElementById('bx3');
+  if (bx3Element) {
+    updateNumber(bx3Element, box3);
+  }
+});
+});
+
+
+/*
+function updateNumber(element, number) {
+element.innerHTML = '<h2>' + number.toLocaleString('en-US') + '</h2>';
+element.classList.add('move');
+
+setTimeout(function() {
+  element.classList.remove('move');
+}, 990);
+}
+  */
+
+// function updateNumber(element, number) {
+//   var oldNumber = element.getAttribute('data-number');
+//   if (!oldNumber) {
+//     oldNumber = number;
+//   }
+
+//   element.setAttribute('data-number', number);
+
+//   element.innerHTML = '<h2>' + number.toLocaleString('en-US') + '</h2>';
+//   element.classList.add('move');
+
+//   if (number > oldNumber) {
+//     element.classList.add('up');
+//   } else if (number < oldNumber) {
+//     element.classList.add('down');
+//   }
+
+//   setTimeout(function() {
+//     element.classList.remove('move', 'up', 'down');
+//   }, 990);
+// }    
+
+function updateNumber(element, number) {
+element.innerHTML = '<h3>' + number.toLocaleString('en-US') + '</h3>';
+// const oldValue = parseInt(element.dataset.value, 10);
+// const newValue = parseInt(number, 10);
+// let directionClass = '';
+// if (newValue > oldValue) {
+//   directionClass = 'up';
+// } else if (newValue < oldValue) {
+//   directionClass = 'down';
+// }
+// if (directionClass) {
+// element.classList.add('move', directionClass);
+// }
+// setTimeout(function () {
+//   element.classList.remove('move', 'up', 'down');
+// }, 500); 
+element.dataset.value = number;
+}
+
+
+
+
+
+</script>
 </body>
 
 </html>
