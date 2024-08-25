@@ -405,6 +405,16 @@ img {
   display: none;
 }
 
+
+.discord {
+  box-shadow: 0px 6px 20px 5px rgba(255,90,38,0.33);
+  border-radius: 15px;
+  background: #1e2124;
+  border-color: rgb(40,43,48);
+}
+
+
+
 </style>
 </head>
 <body>
@@ -467,6 +477,15 @@ img {
 
       </div>
       
+<div class="row discord">
+    <div></div>
+  <widgetbot
+    server="931536214228611102"
+    channel="1137039345350627418"
+    height="600"
+     ></widgetbot>
+</div>
+      
 <!--       <div class="profile__data">
         <h3 class="profile__name">Status v3.2.8</h3>
       </div>
@@ -516,7 +535,10 @@ img {
       </p>
     </div>
   </header>
+
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
   <script >
+
   const socket = io('https://nl-00.hosts.serverawy.tech:3003');
 socket.on("connect", () => {
 console.log(socket.id); // x8WIv7-mJelg7on_ALbx
